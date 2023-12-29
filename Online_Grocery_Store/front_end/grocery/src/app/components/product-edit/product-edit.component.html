@@ -1,0 +1,54 @@
+<div class="container justify-content-center col-6">
+    <h2>UPDATE PRODUCT DETAILS</h2>
+    <hr />
+    <form [formGroup]="productForm" (ngSubmit)="updateProduct()">
+
+        
+      <!-- name control -->
+      <div class="mb-3">
+        <label class="form-label">Enter Name</label>
+        <input type="text" class="form-control" placeholder="Name" formControlName="productName" [(ngModel)]="product.productName"/>
+        <div *ngIf="productForm.controls['productName'].dirty || 
+        productForm.controls['productName'].touched">
+        <div class="alert alert-danger" *ngIf="productForm.controls['productName'].errors?.['required']">Product name is required</div>
+        <div class="alert alert-danger" *ngIf="productForm.controls['productName'].errors?.['pattern']">Product name is invalid</div>
+        </div>
+      </div>
+
+      <!-- price control -->
+      <div class="mb-3">
+        <label class="form-label">Enter Price</label>
+        <input type="text" class="form-control" placeholder="Price" formControlName="productPrice" [(ngModel)]="product.productPrice"/>
+        <div *ngIf="productForm.controls['productPrice'].dirty || 
+        productForm.controls['productPrice'].touched">
+        <div class="alert alert-danger" *ngIf="productForm.controls['productPrice'].errors?.['required']">Product price is required</div>
+        </div>
+      </div>
+
+      <!-- mfdate control -->
+      <div class="mb-3">
+        <label class="form-label">Enter MfDate</label>
+        <input type="text" class="form-control" placeholder="MfDate" formControlName="productMfDate" [(ngModel)]="product.productMfDate"/>
+        <div *ngIf="productForm.controls['productMfDate'].dirty || 
+        productForm.controls['productMfDate'].touched">
+        <div class="alert alert-danger" *ngIf="productForm.controls['productMfDate'].errors?.['required']">Product MfDate is required</div>
+        </div>
+      </div>
+      
+      <!-- exdate control -->
+      <div class="mb-3">
+        <label class="form-label">Enter ExDate</label>
+        <input type="text" class="form-control" placeholder="ExDate" formControlName="productExDate" [(ngModel)]="product.productExDate"/>
+        <div *ngIf="productForm.controls['productExDate'].dirty || 
+        productForm.controls['productExDate'].touched">
+        <div class="alert alert-danger" *ngIf="productForm.controls['productExDate'].errors?.['required']">Product ExDate is required</div>
+        </div>
+      </div>
+        <input
+        type="submit"
+        value="Update Product" 
+        [disabled]="productForm.invalid"
+        class="btn btn-primary mt-4" />
+    </form>
+  </div>
+

@@ -1,0 +1,41 @@
+<div class="container">
+    <table class="table table-striped">
+      <thead>
+        <tr>
+          <th>ID</th>
+          <th>NAME</th>
+          <th>PRICE</th>
+          <th>MFDATE</th>
+          <th>EXDATE</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let product of products">
+          <td>{{ product.productId }}</td>
+          <td>{{ product.productName }}</td>
+          <td>{{ product.productPrice }}</td>
+          <td>{{ product.productMfDate }}</td>
+          <td>{{ product.productExDate }}</td>
+        
+
+         <td>
+           <button 
+             class ="btn btn-danger"
+             (click)="deleteProducts(product.productId)"
+             >
+             DELETE
+            </button>
+         </td>
+
+         <td>
+          <button 
+            class ="btn btn-success"
+            (click)="showEdit(product.productId)"
+            >
+            EDIT
+           </button>
+         </td>
+       </tr>
+      </tbody>
+    </table>
+    </div>
